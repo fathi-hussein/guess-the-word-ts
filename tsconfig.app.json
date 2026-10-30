@@ -22,5 +22,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/components/LanguageChips.tsx.tsx"]
+  "include": ["src", "src/components/LanguageChips.tsx"]
 }
