@@ -1,0 +1,232 @@
+/* --- Global Resets & Page Layout --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #282727;
+  color: #f9daf8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Parent container wrapping all your components */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 460px;
+  padding: 20px 10px;
+  gap: 36px;
+}
+
+/* --- 1. Into Component --- */
+.intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intro h1 {
+  color: #f9daf8;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.intro p {
+  color: #8e8e8e;
+  font-size: 0.8rem;
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* --- 2. Textbox Component (Status Banner) --- */
+/* Add wrapper div styling for the banner when winning/losing */
+.status-box {
+  background-color: #10a37f; /* Win color in screenshot */
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease
+}
+
+.status-box h1 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* --- 3. Buttons Component (Programming Languages Chips) --- */
+.core-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+  max-width: 340px;
+}
+
+.core-buttons {
+  border: none;
+  border-radius: 3px;
+  padding: 4px 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Specific background color matching each language order */
+.core-buttons:nth-child(1) { background-color: #e26015; } /* HTML */
+.core-buttons:nth-child(2) { background-color: #3281e7; } /* CSS */
+.core-buttons:nth-child(3) { background-color: #f4d03f; color: #1e1e1e; } /* Javascript */
+.core-buttons:nth-child(4) { background-color: #29b6f6; color: #1e1e1e; } /* React */
+.core-buttons:nth-child(5) { background-color: #3178c6; } /* Typescript */
+.core-buttons:nth-child(6) { background-color: #5f9ea0; } /* Node.js */
+.core-buttons:nth-child(7) { background-color: #ffde57; color: #1e1e1e; } /* Python */
+.core-buttons:nth-child(8) { background-color: #d91424; } /* Ruby */
+.core-buttons:nth-child(9) { background-color: #4a51be; } /* Assembly */
+
+/* --- 4. Inputs Component (Word Letter Boxes) --- */
+.input {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+/* If you render span/div/h1 boxes inside .input */
+.input > * {
+  width: 40px;
+  height: 40px;
+  background-color: #323232;
+  border-bottom: 1.5 solid #737373;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9daf8;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* --- 5. Keyboard Component --- */
+/* Note: Wrap your keys inside a div with className="keyboard-grid" */
+.keyboard-grid {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 440px;
+}
+
+.key {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid #d7a128;
+  background-color: #fcba29;
+  color: #1e1e1e;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- 6. App Component (Submit / Reset Button) --- */
+.submit-btn {
+  width: 200px;
+  padding: 8px 16px;
+  background-color: #11b5e5;
+  border: none;
+  border-radius: 4px;
+  color: #1e1e1e;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* Container holding all the letter boxes */
+.input {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 10px 0;
+}
+
+/* Styles for each individual letter box 
+   (works whether you use div, span, or a custom class like .letter-box) */
+.input div,
+.input span,
+.letter-box {
+  width: 42px;
+  height: 42px;
+  background-color: #323232;
+  border-bottom: 3px solid #dcdcdc; /* The bottom highlight line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f9daf8;
+  text-transform: uppercase;
+  border-radius: 2px 2px 0 0;
+  
+}
+
+/* Optional: If a letter is guessed incorrectly or needs a special state */
+.missed{
+  background-color: #ec5d49;
+}
+.got{
+  background-color:#10a37f ;
+}
+
+.left {
+  position: relative;
+}
+
+.left::after {
+  content: "💀";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  color: white;
+  pointer-events: none;
+}
+
+.letter-box.fail{
+  color:rgb(255, 71, 71);
+}
+
+.keyboard-overlay .key {
+  filter: brightness(0.5);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
